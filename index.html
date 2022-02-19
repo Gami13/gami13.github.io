@@ -37,8 +37,7 @@
 </head>
 
 <body>
-  <p id="slow">d</p><br>
-  <p id="correcty">p</p>
+
   <div class="game">
     <div class="row">
       <input type="text" id="cell00" class="cell" maxlength="1" oninput="cell('00')" />
@@ -155,10 +154,10 @@
       }
     });
     let word = wordList[Math.round(Math.random() * (26440 - 0) + 0)];
-    document.getElementById('slow').innerHTML = word;
+
     function cell(cellId, evt) {
       let cellName = 'cell' + cellId;
-      document.getElementById('slow').innerHTML += " " + cellId;
+    
       evt = evt || window.event;
       var charCode = evt.keyCode || evt.which;
       var charStr = String.fromCharCode(charCode);
@@ -181,7 +180,7 @@
       
       currentCell = uptick(cellId);
       if (cellId == 04) {
-        document.getElementById('slow').innerHTML += " halo halo";
+
         checkWord('0');
       }
       else if (cellId == 14) {
@@ -201,7 +200,7 @@
       }
 
       function checkWord(rowId) {
-        document.getElementById('slow').innerHTML += "chuj";
+     
         let correct = 0;
         let cell0 = document.getElementById('cell' + rowId + '0');
         let cell1 = document.getElementById('cell' + rowId + '1');
@@ -223,7 +222,7 @@
           
           currentCell = uptick(cellId);
           if (word.includes(cell0.value.toLowerCase())) {
-            document.getElementById('slow').innerHTML += "ma litere";
+           
             if (word[0] == cell0.value.toLowerCase()) {
               cell0.classList.add('green');
               correct++;
@@ -282,7 +281,7 @@
           /* alert('Nie ma takiego słowa') */
         }
         
-        document.getElementById('correcty').innerHTML = " correct" + correct;
+
 
         if (correct == 5) {
 
