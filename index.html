@@ -37,7 +37,7 @@
 </head>
 
 <body>
-
+  <h1>Worde po polsku</h1>
   <div class="game">
     <div class="row">
       <input type="text" id="cell00" class="cell" maxlength="1" oninput="cell('00')" />
@@ -166,19 +166,11 @@
 
 
 
-      document.getElementById(cellName).value = document.getElementById(cellName).value.toUpperCase();
-      document.getElementById(cellName).disabled = true;
       
-      try{
-        document.getElementById('cell' + uptick(cellId)).disabled = false;
-        document.getElementById('cell' + uptick(cellId)).focus();
         
-      }
-      catch{
+ 
       
-      }
       
-      currentCell = uptick(cellId);
       if (cellId == 04) {
 
         checkWord('0');
@@ -198,6 +190,15 @@
       else if (cellId == 54) {
         checkWord('5');
       }
+      else{
+        document.getElementById(cellName).value = document.getElementById(cellName).value.toUpperCase();
+      document.getElementById(cellName).disabled = true;
+      
+     
+        document.getElementById('cell' + uptick(cellId)).disabled = false;
+        document.getElementById('cell' + uptick(cellId)).focus();
+        currentCell = uptick(cellId);
+      }
 
       function checkWord(rowId) {
      
@@ -210,17 +211,18 @@
         let wordInput = cell0.value + cell1.value + cell2.value + cell3.value + cell4.value;
         if (wordList.includes(wordInput.toLowerCase())) {
 
+if(rowId!=5)
+{
+
+        
           document.getElementById(cellName).value = document.getElementById(cellName).value.toUpperCase();
           document.getElementById(cellName).disabled = true;
-          try{
             document.getElementById('cell' + uptick(cellId)).disabled = false;
           document.getElementById('cell' + uptick(cellId)).focus();
-          }
-          catch{
-
-          }
-          
+         
+        } 
           currentCell = uptick(cellId);
+         
           if (word.includes(cell0.value.toLowerCase())) {
            
             if (word[0] == cell0.value.toLowerCase()) {
